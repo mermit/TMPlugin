@@ -8,7 +8,7 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable(){
         //Fired when the server enables the plugin
-    	System.out.println("Enabling TMP");
+    	System.out.println("Enabling TMPlugin");
     }
 
     @Override
