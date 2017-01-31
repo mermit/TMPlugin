@@ -23,7 +23,7 @@ public class PlayerListener implements Listener {
 		
 		if (!configGetter.getConfig().contains(player.getName())) {
 			
-			configGetter.getConfig().addDefault(player.getName(), true);
+			configGetter.getConfig().addDefault(player.getName(), "on");
 			configGetter.saveConfig();
 			
 		}

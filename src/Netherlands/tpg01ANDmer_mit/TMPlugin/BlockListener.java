@@ -34,7 +34,16 @@ public class BlockListener implements Listener {
 			
 			for (Player p : Bukkit.getOnlinePlayers()) {
 				
-				if ((p.hasPermission("ThomasterPlugin.alerts") || p.isOp()) && configGetter.getConfig().getBoolean(p.getName()) == true) {
+				if ((p.hasPermission("ThomasterPlugin.alerts") || p.isOp()) && configGetter.getConfig().getString(p.getName()).equalsIgnoreCase("on")) {
+					
+					//Add sound effect here
+					
+					p.sendRawMessage(ChatColor.RED + "" + ChatColor.BOLD + "ALERT! " + ChatColor.RESET + ChatColor.GRAY + event.getPlayer().getName() + " just tried to place " + ChatColor.WHITE + block.getType() + ChatColor.GRAY + " at " + ChatColor.WHITE + "X: "+ location.getX() + " Y: "+ location.getY() + " Z: " + location.getZ() + ChatColor.GRAY +"!");
+				}
+				
+				if ((p.hasPermission("ThomasterPlugin.alerts") || p.isOp()) && configGetter.getConfig().getString(p.getName()).equalsIgnoreCase("silent")) {
+					
+					//No sound effects here
 					
 					p.sendRawMessage(ChatColor.RED + "" + ChatColor.BOLD + "ALERT! " + ChatColor.RESET + ChatColor.GRAY + event.getPlayer().getName() + " just tried to place " + ChatColor.WHITE + block.getType() + ChatColor.GRAY + " at " + ChatColor.WHITE + "X: "+ location.getX() + " Y: "+ location.getY() + " Z: " + location.getZ() + ChatColor.GRAY +"!");
 				}
@@ -58,7 +67,17 @@ public class BlockListener implements Listener {
 			
 			for (Player p : Bukkit.getOnlinePlayers()) {
 				
-				if (p.hasPermission("ThomasterPlugin.alerts") || p.isOp() && configGetter.getConfig().getBoolean(p.getName()) == true) {
+				if (p.hasPermission("ThomasterPlugin.alerts") || p.isOp() && configGetter.getConfig().getString(p.getName()).equalsIgnoreCase("on")) {
+					
+					//Add sound effect here
+					
+					p.sendRawMessage(ChatColor.RED + "" + ChatColor.BOLD + "ALERT! " + ChatColor.RESET + ChatColor.GRAY + event.getPlayer().getName() + " just tried to break " + ChatColor.WHITE + block.getType() + ChatColor.GRAY + " at " + ChatColor.WHITE + "X: "+ location.getX() + " Y: "+ location.getY() + " Z: " + location.getZ() + ChatColor.GRAY +"!");
+					
+				}
+				
+				if (p.hasPermission("ThomasterPlugin.alerts") || p.isOp() && configGetter.getConfig().getString(p.getName()).equalsIgnoreCase("silent")) {
+					
+					//No sound effects here
 					
 					p.sendRawMessage(ChatColor.RED + "" + ChatColor.BOLD + "ALERT! " + ChatColor.RESET + ChatColor.GRAY + event.getPlayer().getName() + " just tried to break " + ChatColor.WHITE + block.getType() + ChatColor.GRAY + " at " + ChatColor.WHITE + "X: "+ location.getX() + " Y: "+ location.getY() + " Z: " + location.getZ() + ChatColor.GRAY +"!");
 					

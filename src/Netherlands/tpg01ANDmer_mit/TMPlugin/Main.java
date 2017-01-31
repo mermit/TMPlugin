@@ -28,28 +28,65 @@ public class Main extends JavaPlugin {
 		//Toggles the alerts that a player gets
 		if (cmd.getName().equalsIgnoreCase("alerts")) {
 			
-			if (args.length == 0) {
+			if (args.length == 1) {
 				
-				
-				//Imports data from config file
-				
-				boolean bool = this.getConfig().getBoolean(sender.getName());
-				
-				if (bool == false) {
+				if (args[0].equalsIgnoreCase("on")) {
 					
-					this.getConfig().set(sender.getName(), true);
-					this.saveConfig();
+					if (!this.getConfig().getString(sender.getName()).equalsIgnoreCase("on")) {
+						
+						this.getConfig().set(sender.getName(), "on");
+						this.saveConfig();
+						sender.sendRawMessage(ChatColor.GREEN + "Succesvully enabled SmartAlerts!");
+						
+					}
 					
-					sender.sendRawMessage(ChatColor.GREEN + "Succesvully enabled SmartAlerts!");
+					else {
+						
+						sender.sendRawMessage(ChatColor.RED + "SmartAlerts is already enabled!");
+						
+					}
 					
 				}
 				
-				if (bool == true) {
+				else if (args[0].equalsIgnoreCase("silent")) {
 					
-					this.getConfig().set(sender.getName(), false);
-					this.saveConfig();
+					if (!this.getConfig().getString(sender.getName()).equalsIgnoreCase("silent")) {
+						
+						this.getConfig().set(sender.getName(), "silent");
+						this.saveConfig();
+						sender.sendRawMessage(ChatColor.GREEN + "Succesvully set SmartAlerts to silent!");
+						
+					}
 					
-					sender.sendRawMessage(ChatColor.GREEN + "Succesvully disabled SmartAlerts!");
+					else {
+						
+						sender.sendRawMessage(ChatColor.RED + "SmartAlerts is already silent!");
+						
+					}
+					
+				}
+				
+				else if (args[0].equalsIgnoreCase("off")) {
+					
+					if (!this.getConfig().getString(sender.getName()).equalsIgnoreCase("off")) {
+						
+						this.getConfig().set(sender.getName(), "off");
+						this.saveConfig();
+						sender.sendRawMessage(ChatColor.GREEN + "Succesvully disabled SmartAlerts");
+						
+					}
+					
+					else {
+						
+						sender.sendRawMessage(ChatColor.RED + "SmartAlerts is already disabled");
+						
+					}
+					
+				}
+				
+				else {
+					
+					sender.sendRawMessage(ChatColor.RED + "Valid arguments are: on, silent, off!");
 					
 				}
 				
@@ -57,7 +94,7 @@ public class Main extends JavaPlugin {
 			
 			else {
 				
-				sender.sendRawMessage("Usage: /alerts");
+				sender.sendRawMessage(ChatColor.RED + "Usage: /alerts <on/off/silent>");
 				
 			}
 			
