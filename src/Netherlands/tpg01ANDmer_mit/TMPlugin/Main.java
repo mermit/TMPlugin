@@ -22,8 +22,8 @@ public class Main extends JavaPlugin {
 	public static ItemStack disable;
 	public static ItemStack show;
 	public static ItemStack bar;
-	
-	@Override
+
+    @Override
 	public void onEnable() {
 		
 		new PlayerListener(this);
