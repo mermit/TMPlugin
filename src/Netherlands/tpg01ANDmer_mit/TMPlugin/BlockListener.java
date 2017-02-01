@@ -12,6 +12,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
 public class BlockListener implements Listener {
+	
 	Main configGetter;
 	
 	public BlockListener(Main plugin) {
@@ -19,6 +20,7 @@ public class BlockListener implements Listener {
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);
 		
 		configGetter = plugin;
+	
 	}
 	
 	@EventHandler

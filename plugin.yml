@@ -3,5 +3,5 @@ main: Netherlands.tpg01ANDmer_mit.TMPlugin.Main
 version: 1.0
 commands:
    alerts:
-      description: Toggles alerts
+      description: Accesses the alert options
       usage: /<command>

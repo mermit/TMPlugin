@@ -136,30 +136,21 @@ public class InventoryListener implements Listener {
 				boolean bool = false;
 				
 				for (Player p : Bukkit.getServer().getOnlinePlayers()) {
-					
-					try {
 						
-						if (p.getName().equalsIgnoreCase(event.getMessage())) {
-							
-							String playerInfo = configGetter.getConfig().getString(p.getName());
-							
-							player.sendRawMessage(ChatColor.GREEN + "" + ChatColor.BOLD + ">> " + ChatColor.RESET + ChatColor.GRAY + p.getName() + "'s settings are set to: " + playerInfo);
-							
-							bool = true;
-						}
+					if (p.getName().equalsIgnoreCase(event.getMessage())) {
 						
+						String alerts = configGetter.getConfig().getString(p.getName());
+						
+						player.sendRawMessage(ChatColor.GREEN + "" + ChatColor.BOLD + ">> " + ChatColor.RESET + ChatColor.GRAY + p.getName() + "'s settings are set to: ");							player.sendRawMessage(ChatColor.GRAY + "     Alerts: " + ChatColor.WHITE + alerts.toUpperCase());
+						
+						bool = true;
 					}
 					
-					finally {
-						
-						if (bool == false) {
-							
-							player.sendRawMessage(ChatColor.GREEN + "" + ChatColor.BOLD + ">> " + ChatColor.RESET + ChatColor.GRAY + "Cancelled: couldn't find a player online named " + event.getMessage());
-							
-						}
-						
-					}
+				}
+				
+				if (bool == false) {
 					
+					player.sendRawMessage(ChatColor.GREEN + "" + ChatColor.BOLD + ">> " + ChatColor.RESET + ChatColor.GRAY + "Cancelled: couldn't find a player online named " + event.getMessage());
 					
 				}
 				
