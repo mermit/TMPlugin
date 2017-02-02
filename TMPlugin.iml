@@ -17,5 +17,14 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="spigot-1.11.2" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://E:/Apps/Games/Mc/Plugins/Dependencies and libraries/derby.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
