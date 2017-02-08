@@ -6,7 +6,7 @@ import java.sql.Statement;
 
 import org.apache.derby.iapi.sql.*;
 import org.apache.derby.iapi.sql.dictionary.SystemColumn;
-import org.apache.derby.jdbc.EmbeddedDriver;
+import org.apache.derby.jdbc.*;
 
 public class DBHandler {
     private static String dbURL = "jdbc:derby:TMPluginDB;create=true";
@@ -14,6 +14,7 @@ public class DBHandler {
 
     public DBHandler() {
         try {
+            DriverManager.registerDriver(new org.apache.derby.jdbc.EmbeddedDriver());
             Connection conn = DriverManager.getConnection(dbURL);
 
             dropTables(conn);
