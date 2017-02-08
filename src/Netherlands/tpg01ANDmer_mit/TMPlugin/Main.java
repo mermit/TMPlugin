@@ -32,8 +32,6 @@ public class Main extends JavaPlugin {
 		new InventoryListener(this);
 		
 		this.getConfig().options().copyDefaults(true);
-
-		DBHandler.main();
 		
 	}
 	@Override
