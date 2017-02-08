@@ -19,14 +19,12 @@ public class PlayerListener implements Listener {
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		
+		//Create optionsmenu here
+		
 		Player player = event.getPlayer();
 		
-		if (!configGetter.getConfig().contains(player.getName())) {
-			
-			configGetter.getConfig().addDefault(player.getName(), "on");
-			configGetter.saveConfig();
-			
-		}
-		
+		//If (player settings do not exist) {
+			//insert(player.getName(), "On", "[Material.Bedrock,Material.Tnt]", "[]", false, optionsmenu);
+		//}
 	}
 }
