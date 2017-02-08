@@ -22,8 +22,8 @@ public class DBHandler {
             conn.close();
             DriverManager.getConnection("jdbc:derby:;shutdown=true");
         } catch (Exception e) {
-            System.out.println("Error Creating table PlayerSettings");
-            System.out.println("ERROR: " + e.getMessage());
+            System.out.println("[TMPlugin LOGHANDLER] Error Creating table PlayerSettings");
+            System.out.println("[TMPlugin LOGHANDLER] ERROR: " + e.getMessage());
         }
     }
 
@@ -32,11 +32,11 @@ public class DBHandler {
             Statement stmt = conn.createStatement();
             try {
                 stmt.execute("DROP TABLE PlaterSettings");
-                System.out.println("PlayerSettings table dropped");
+                System.out.println("[TMPlugin LOGHANDLER] PlayerSettings table dropped");
             } catch (SQLException ex) {
             }
         } catch (SQLException ex) {
-            System.out.println("ERROR: " + ex.getMessage());
+            System.out.println("[TMPlugin LOGHANDLER] ERROR: " + ex.getMessage());
             ex.printStackTrace();
         }
     }
@@ -48,9 +48,9 @@ public class DBHandler {
             stmt.execute("insert into " + tableName + " values (" +
                     PlayerName + ",'" + NotificationSetting + "','" + NotificationOnBlocks + "','" + NoNotificationsOnPlayers +"')");
 
-            System.out.println("table PlayerSetting created");
+            System.out.println("[TMPlugin LOGHANDLER] table PlayerSetting created");
         } catch (SQLException ex) {
-            System.out.println("ERROR: " + ex.getMessage());
+            System.out.println("[TMPlugin LOGHANDLER] ERROR: " + ex.getMessage());
         }
     }
 }
